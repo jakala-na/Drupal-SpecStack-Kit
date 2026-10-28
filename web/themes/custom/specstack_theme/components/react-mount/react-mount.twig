@@ -1,0 +1,7 @@
+{% set mount_id = 'specstack-react-' ~ app|clean_id %}
+
+<div
+  id="{{ mount_id }}"
+  data-specstack-react-app="{{ app }}"
+  data-react-settings="{{ settings|default({})|json_encode|e('html_attr') }}"
+></div>

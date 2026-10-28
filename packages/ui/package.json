@@ -1,0 +1,37 @@
+{
+  "name": "@specstack/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "lint": "pnpm oxlint:fix && pnpm oxfmt && pnpm ts-check",
+    "lint:check": "pnpm oxlint && pnpm oxfmt:check && pnpm ts-check",
+    "oxlint": "oxlint --config ../../.oxlintrc.json src",
+    "oxlint:fix": "oxlint --fix --config ../../.oxlintrc.json src",
+    "oxfmt": "oxfmt src",
+    "oxfmt:check": "oxfmt --check src",
+    "ts-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@specstack/drupal-sdk": "workspace:*",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@specstack/typescript-config": "workspace:*",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "oxfmt": "^0.16.0",
+    "oxlint": "^1.26.0",
+    "typescript": "^5.9"
+  }
+}

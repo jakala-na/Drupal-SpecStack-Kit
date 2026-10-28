@@ -1,0 +1,12 @@
+id: specstack_hello_world_item
+plugin_id: specstack_hello_world_item
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - PATCH
+    - DELETE
+  formats:
+    - json
+  authentication:
+    - cookie

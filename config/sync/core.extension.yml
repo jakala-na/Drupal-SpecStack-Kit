@@ -1,0 +1,46 @@
+_core:
+  default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
+module:
+  admin_toolbar: 0
+  block: 0
+  breakpoint: 0
+  dblog: 0
+  dynamic_page_cache: 0
+  field: 0
+  file: 0
+  filter: 0
+  gin_toolbar: 0
+  image: 0
+  jsonapi: 0
+  jsonapi_query_builder: 0
+  media: 0
+  media_library: 0
+  mysql: 0
+  node: 0
+  openapi: 0
+  openapi_jsonapi: 0
+  openapi_rest: 0
+  openapi_ui: 0
+  openapi_ui_swagger: 0
+  options: 0
+  page_cache: 0
+  path_alias: 0
+  rest: 0
+  restui: 0
+  schemata: 0
+  schemata_json_schema: 0
+  serialization: 0
+  specstack_api: 0
+  specstack_hello_world: 0
+  system: 0
+  text: 0
+  toolbar: 0
+  update: 0
+  user: 0
+  views: 10
+  specstack_kit: 1000
+theme:
+  claro: 0
+  specstack_theme: 0
+  gin: 0
+profile: specstack_kit

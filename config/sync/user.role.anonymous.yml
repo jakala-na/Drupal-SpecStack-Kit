@@ -1,0 +1,21 @@
+uuid: e3cb9dd2-cae0-483c-b7e1-1ae2ff732918
+langcode: en
+status: true
+dependencies:
+  config:
+    - rest.resource.specstack_hello_world_collection
+    - rest.resource.specstack_hello_world_item
+  module:
+    - rest
+    - system
+_core:
+  default_config_hash: G-w_CVrE4V-YBuDlnDWfx1QZqcLG953v8xtRL-C962Y
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'restful get specstack_hello_world_collection'
+  - 'restful get specstack_hello_world_item'
+  - 'restful post specstack_hello_world_collection'

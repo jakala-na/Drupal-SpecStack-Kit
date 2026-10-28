@@ -1,0 +1,37 @@
+{
+  "name": "@specstack/theme",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:dev": "node scripts/build.js --dev",
+    "watch": "node scripts/build.js --dev --watch",
+    "watch:prod": "node scripts/build.js --watch",
+    "lint": "pnpm oxlint:fix && pnpm oxfmt && pnpm ts-check",
+    "lint:check": "pnpm oxlint && pnpm oxfmt:check && pnpm ts-check",
+    "oxlint": "oxlint --config ../../../../.oxlintrc.json src components/card/src scripts",
+    "oxlint:fix": "oxlint --fix --config ../../../../.oxlintrc.json src components/card/src scripts",
+    "oxfmt": "oxfmt src components/card/src scripts package.json",
+    "oxfmt:check": "oxfmt --check src components/card/src scripts package.json",
+    "ts-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@specstack/ui": "workspace:*",
+    "@specstack/vite": "workspace:*",
+    "@tailwindcss/vite": "^4.1.4",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "@specstack/typescript-config": "workspace:*",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "oxfmt": "^0.16.0",
+    "oxlint": "^1.26.0",
+    "typescript": "^5.9",
+    "vite": "^8.0.0"
+  }
+}

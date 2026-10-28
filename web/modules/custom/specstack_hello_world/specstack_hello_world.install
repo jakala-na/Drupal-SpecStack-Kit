@@ -1,0 +1,50 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install hooks for the SpecStack hello-world demo module.
+ */
+
+/**
+ * Places the demo block on module install.
+ */
+function specstack_hello_world_install(): void {
+  specstack_hello_world_place_demo_block();
+}
+
+/**
+ * Places the hello-world demo block in the SpecStack theme content region.
+ */
+function specstack_hello_world_place_demo_block(): void {
+  if (!\Drupal::moduleHandler()->moduleExists('block')) {
+    return;
+  }
+
+  if (!\Drupal::service('theme_handler')->themeExists('specstack_theme')) {
+    return;
+  }
+
+  $storage = \Drupal::entityTypeManager()->getStorage('block');
+  if ($storage->load('specstack_theme_hello_world_demo')) {
+    return;
+  }
+
+  $block = $storage->create([
+    'id' => 'specstack_theme_hello_world_demo',
+    'theme' => 'specstack_theme',
+    'region' => 'content',
+    'weight' => 0,
+    'status' => TRUE,
+    'plugin' => 'specstack_hello_world_demo',
+    'settings' => [
+      'id' => 'specstack_hello_world_demo',
+      'label' => 'Hello World CRUD demo',
+      'label_display' => TRUE,
+      'provider' => 'specstack_hello_world',
+    ],
+    'visibility' => [],
+  ]);
+  $block->save();
+}

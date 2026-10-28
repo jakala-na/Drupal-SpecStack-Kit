@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Sprite icon partial. Sources: assets/icons/{name}.svg (sprite only;
+ * featured artwork lives in assets/featured-icons/).
+ *
+ * @param string name
+ *   Icon id (filename without .svg).
+ * @param string width
+ *   SVG width attribute (default: 1em).
+ * @param string height
+ *   SVG height attribute (default: 1em).
+ * @param string|string[] additionalClasses
+ *   Extra classes on the outer <svg>.
+ *
+ * @code
+ * {% include '@specstack_theme/icons/icon.html.twig' with { name: 'chevron-right' } only %}
+ * @endcode
+ */
+#}
+{% set icon_name = name|default('')|trim|replace({'..': '', '/': '', '\\': ''}) %}
+{% if icon_name %}
+  {% set classes = ['ssk-icon', 'ssk-icon--' ~ icon_name] %}
+  {% if additionalClasses is iterable %}
+    {% set classes = classes|merge(additionalClasses) %}
+  {% elseif additionalClasses|default('')|trim %}
+    {% set classes = classes|merge(additionalClasses|trim|split(' ')) %}
+  {% endif %}
+  <svg
+    class="{{ classes|join(' ') }}"
+    width="{{ width|default('1em') }}"
+    height="{{ height|default('1em') }}"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <use href="#ssk-icon-{{ icon_name }}"></use>
+  </svg>
+{% endif %}

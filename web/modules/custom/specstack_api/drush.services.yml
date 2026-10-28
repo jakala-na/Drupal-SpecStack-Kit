@@ -1,0 +1,6 @@
+services:
+  specstack_api.commands:
+    class: Drupal\specstack_api\Drush\Commands\SpecStackApiCommands
+    arguments: ['@Drupal\specstack_api\OpenApi\Document']
+    tags:
+      - { name: drush.command }

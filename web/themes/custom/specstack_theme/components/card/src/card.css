@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.ssk-card {
+  @apply rounded-xl border border-[var(--ssk-color-border,#d8dee4)] p-4;
+}
+
+.ssk-card__title {
+  @apply mb-2 mt-0;
+}

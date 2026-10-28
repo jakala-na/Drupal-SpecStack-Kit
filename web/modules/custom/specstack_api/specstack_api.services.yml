@@ -1,0 +1,5 @@
+services:
+  Drupal\specstack_api\OpenApi\Document:
+    arguments: ['@module_handler']
+  Drupal\specstack_api\OpenApi\SchemaValidator: ~
+  Drupal\specstack_api\Hook\OpenApiHooks: ~

@@ -1,0 +1,1 @@
+(function(){((e,t)=>{e.behaviors.specstackThemeGlobal={attach(e){t(`specstack-theme-global`,`.js-ssk-theme`,e).forEach(e=>{e.classList.add(`ssk-theme--ready`)})}}})(Drupal,once)})();

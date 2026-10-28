@@ -1,0 +1,28 @@
+uuid: f56cd03c-06b8-4659-957b-010e7a1940c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.hello_world
+    - rest.resource.specstack_hello_world_collection
+    - rest.resource.specstack_hello_world_item
+  module:
+    - node
+    - rest
+    - system
+_core:
+  default_config_hash: ktMBJz2n6TWljHfk1PMYfToVbs8Sqts7Mg8oIj7egAU
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'create hello_world content'
+  - 'delete any hello_world content'
+  - 'edit any hello_world content'
+  - 'restful delete specstack_hello_world_item'
+  - 'restful get specstack_hello_world_collection'
+  - 'restful get specstack_hello_world_item'
+  - 'restful patch specstack_hello_world_item'
+  - 'restful post specstack_hello_world_collection'

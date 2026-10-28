@@ -1,0 +1,45 @@
+/.editorconfig
+/.gitattributes
+**/.DS_Store
+
+# Composer
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/drush/Commands/contrib/
+
+# Docksal local overrides
+/.docksal/docksal-local.env
+/.docksal/docksal-local.yml
+/.docksal/database.sql
+/.docksal/database.sql.gz
+
+# Local tooling overrides
+/phpcs.xml
+/.phpcs-cache
+
+# Site secrets and generated state
+/salt.txt
+/web/sites/*/settings.local.php
+/web/sites/*/services.yml
+/web/sites/*/files/
+/files-private/*
+!/files-private/.gitkeep
+
+# Node / Turborepo
+node_modules/
+/.pnpm-store/
+**/.turbo/
+
+# IDE
+/.cursor/
+/.local/
+/.idea/
+/.vscode/*
+!/.vscode/launch.json
+!/.vscode/extensions.json
+.specstory/
+

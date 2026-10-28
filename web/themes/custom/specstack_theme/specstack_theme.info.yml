@@ -1,0 +1,12 @@
+name: SpecStack Theme
+type: theme
+description: Drupal theme with SDC components and externally built React demos.
+core_version_requirement: ^10 || ^11
+base theme: false
+enforce_prop_schemas: true
+libraries:
+  - specstack_theme/global
+regions:
+  header: Header
+  content: Content
+  footer: Footer

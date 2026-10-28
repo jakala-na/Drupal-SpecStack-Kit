@@ -1,0 +1,22 @@
+{
+  "name": "specstack-kit",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "lint:check": "turbo run lint:check",
+    "oxlint": "turbo run oxlint",
+    "oxfmt": "turbo run oxfmt",
+    "oxfmt:check": "turbo run oxfmt:check",
+    "ts-check": "turbo run ts-check",
+    "openapi-ts": "turbo run openapi-ts"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.16.0",
+    "oxlint": "^1.26.0",
+    "syncpack": "^13.0.4",
+    "turbo": "^2.5.5"
+  }
+}

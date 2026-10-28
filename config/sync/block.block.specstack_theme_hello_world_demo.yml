@@ -1,0 +1,20 @@
+uuid: 83c2c80f-8c93-4886-8a51-fbf0dd143916
+langcode: en
+status: true
+dependencies:
+  module:
+    - specstack_hello_world
+  theme:
+    - specstack_theme
+id: specstack_theme_hello_world_demo
+theme: specstack_theme
+region: content
+weight: 0
+provider: null
+plugin: specstack_hello_world_demo
+settings:
+  id: specstack_hello_world_demo
+  label: 'Hello World demo'
+  label_display: '0'
+  provider: specstack_hello_world
+visibility: {  }

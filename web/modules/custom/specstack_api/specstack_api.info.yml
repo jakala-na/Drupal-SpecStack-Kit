@@ -1,0 +1,12 @@
+name: SpecStack API
+type: module
+description: Provides reusable REST, OpenAPI contract merge, schema validation, and entity operation helpers.
+package: SpecStack
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:rest
+  - drupal:serialization
+  - openapi:openapi
+  - openapi_rest:openapi_rest
+  - openapi_ui:openapi_ui
+  - openapi_ui_swagger:openapi_ui_swagger

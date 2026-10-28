@@ -1,0 +1,35 @@
+name: SpecStack Kit
+type: profile
+description: 'Drupal starterkit with frontend-first theme builds, OpenAPI contracts, and React islands.'
+core_version_requirement: ^10 || ^11
+distribution:
+  name: SpecStack Kit
+install:
+  - node
+  - block
+  - dblog
+  - page_cache
+  - dynamic_page_cache
+  - field
+  - filter
+  - text
+  - options
+  - file
+  - media
+  - media_library
+  - toolbar
+  - admin_toolbar
+  - rest
+  - serialization
+  - restui
+  - openapi
+  - openapi_rest
+  - openapi_ui
+  - openapi_ui_swagger
+  - gin_toolbar
+  - specstack_api
+  - specstack_hello_world
+themes:
+  - claro
+  - gin
+  - specstack_theme

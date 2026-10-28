@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * HTML document shell. Injects the icon sprite once for <use> references.
+ *
+ * @see templates/icons/sprite.html.twig
+ * @see templates/icons/icon.html.twig
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  {# js-ssk-theme: attachment hook for theme global.js — do not style this class. #}
+  <body{{ attributes.addClass('js-ssk-theme') }}>
+    <a href="#main-content" class="visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {% include '@specstack_theme/icons/sprite.html.twig' %}
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>

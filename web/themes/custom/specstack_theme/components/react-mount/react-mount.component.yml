@@ -1,0 +1,17 @@
+name: React Mount
+description: Mount point for external React apps.
+props:
+  type: object
+  required:
+    - app
+  properties:
+    app:
+      type: string
+      title: App key
+    settings:
+      type: object
+      title: React settings
+      default: {}
+libraryOverrides:
+  dependencies:
+    - specstack_theme/react_app

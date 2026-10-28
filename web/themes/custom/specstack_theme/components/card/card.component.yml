@@ -1,0 +1,14 @@
+name: Card
+description: Basic content card.
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+    body:
+      type: string
+      title: Body
+      default: ''

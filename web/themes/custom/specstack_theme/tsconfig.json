@@ -1,0 +1,4 @@
+{
+  "extends": "@specstack/typescript-config/react.json",
+  "include": ["src", "components/*/src"]
+}

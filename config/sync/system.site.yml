@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: 6d9gqJtAyMorosi_b_1KHrJuxhtd-n6BiSChFgbLFpI
+name: 'SpecStack Kit'
+mail: admin@example.com
+slogan: 'OpenAPI-backed React CRUD for Drupal'
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+uuid: 8a1f200e-dcdd-4de9-8db2-97b302f44df2

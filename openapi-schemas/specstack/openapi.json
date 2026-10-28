@@ -1,0 +1,181 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "SpecStack API",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/v1/hello-world": {
+            "get": {
+                "summary": "List hello-world items.",
+                "responses": {
+                    "200": {
+                        "description": "Hello-world list.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HelloWorldCollectionResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a hello-world item.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HelloWorldInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created hello-world item.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HelloWorldItemResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/hello-world/{id}": {
+            "get": {
+                "summary": "Load a hello-world item.",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/HelloWorldId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Hello-world item.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HelloWorldItemResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Update a hello-world item.",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/HelloWorldId"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HelloWorldInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated hello-world item.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HelloWorldItemResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a hello-world item.",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/HelloWorldId"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted hello-world item."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "HelloWorld": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "HelloWorldInput": {
+                "type": "object",
+                "required": [
+                    "title"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "HelloWorldCollectionResponse": {
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HelloWorld"
+                        }
+                    }
+                }
+            },
+            "HelloWorldItemResponse": {
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "properties": {
+                    "data": {
+                        "$ref": "#/components/schemas/HelloWorld"
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "HelloWorldId": {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

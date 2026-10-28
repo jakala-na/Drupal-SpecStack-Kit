@@ -1,0 +1,57 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "concurrency": "2",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "lint:check"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "tsconfig.json",
+        "packages/**/*.{ts,tsx,css,js,mjs,json}",
+        "web/themes/custom/specstack_theme/templates/**/*.{twig,html}",
+        "web/themes/custom/specstack_theme/src/**/*.{ts,tsx,js,css}",
+        "web/themes/custom/specstack_theme/components/**/*.{twig,yml,ts,css}",
+        "web/themes/custom/specstack_theme/assets/**/*",
+        "web/themes/custom/specstack_theme/scripts/**/*.js"
+      ],
+      "outputs": [
+        "web/themes/custom/specstack_theme/dist/**",
+        "web/themes/custom/specstack_theme/templates/icons/sprite.html.twig",
+        "web/themes/custom/specstack_theme/components/**/*.js",
+        "web/themes/custom/specstack_theme/components/**/*.css",
+        "**/dist/**"
+      ]
+    },
+    "openapi-ts": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "web/themes/custom/specstack_theme/openapi_schemas/**/*.json"
+      ],
+      "outputs": ["src/openapi-clients/specstack/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": []
+    },
+    "lint:check": {
+      "dependsOn": []
+    },
+    "oxlint": {
+      "inputs": ["$TURBO_DEFAULT$", ".oxlintrc.json"],
+      "cache": false
+    },
+    "oxfmt": {
+      "inputs": ["$TURBO_DEFAULT$", ".oxfmtrc.json"],
+      "cache": false
+    },
+    "oxfmt:check": {
+      "inputs": ["$TURBO_DEFAULT$", ".oxfmtrc.json"]
+    },
+    "ts-check": {
+      "inputs": ["$TURBO_DEFAULT$", "tsconfig.json"]
+    }
+  }
+}

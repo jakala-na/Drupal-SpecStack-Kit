@@ -1,0 +1,12 @@
+name: SpecStack Hello World API
+type: module
+description: Demo CRUD API for React entity operations.
+package: SpecStack
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:block
+  - drupal:node
+  - drupal:rest
+  - drupal:serialization
+  - restui:restui
+  - specstack_api:specstack_api

@@ -1,0 +1,100 @@
+{
+  "name": "specstack/specstack-kit",
+  "description": "Drupal starterkit with frontend-first theme builds, OpenAPI contracts, and React islands.",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "swagger-api/swagger-ui",
+        "version": "5.32.6",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.32.6.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "cweagans/composer-patches": "^1",
+    "drupal/admin_toolbar": "^3.6",
+    "drupal/core-composer-scaffold": "^11",
+    "drupal/eck": "^2.0",
+    "drupal/gin": "^5",
+    "drupal/gin_toolbar": "^3",
+    "drupal/jsonapi_query_builder": "^2.0",
+    "drupal/openapi": "^2.0",
+    "drupal/openapi_rest": "^2.0",
+    "drupal/openapi_ui": "^1.0",
+    "drupal/openapi_ui_swagger": "^1.0",
+    "drupal/recommended-project": "^11",
+    "drupal/restui": "^1.22",
+    "drush/drush": "^13.7",
+    "justinrainbow/json-schema": "^6.0",
+    "swagger-api/swagger-ui": "5.32.6"
+  },
+  "minimum-stability": "RC",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "cweagans/composer-patches": true,
+      "drupal/core-composer-scaffold": true,
+      "drupal/core-project-message": true,
+      "drupal/core-recipe-unpack": true
+    },
+    "sort-packages": true
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      }
+    },
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/libraries/{$name}": [
+        "swagger-api/swagger-ui",
+        "type:drupal-library",
+        "type:npm-asset",
+        "type:bower-asset"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/Commands/contrib/{$name}": [
+        "type:drupal-drush"
+      ],
+      "web/modules/custom/{$name}": [
+        "type:drupal-custom-module"
+      ],
+      "web/profiles/custom/{$name}": [
+        "type:drupal-custom-profile"
+      ],
+      "web/themes/custom/{$name}": [
+        "type:drupal-custom-theme"
+      ]
+    }
+  },
+  "require-dev": {
+    "drupal/devel": "^5.5"
+  }
+}

@@ -1,0 +1,21 @@
+uuid: 914732af-1c99-47d7-9f86-8f6df58cb2b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - specstack_hello_world
+    - user
+_core:
+  default_config_hash: jFBsM_gt4lrHKW1Atn_yoI5uUcfm-Jw-cCuG6UgDvGA
+id: specstack_hello_world_collection
+plugin_id: specstack_hello_world_collection
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+  formats:
+    - json
+  authentication:
+    - cookie

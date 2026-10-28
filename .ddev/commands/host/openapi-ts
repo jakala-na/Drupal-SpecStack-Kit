@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+## Export OpenAPI contracts and generate the TypeScript client.
+##
+## Runs `drush specstack:openapi:generate` then `pnpm openapi-ts`.
+##
+## Usage: openapi-ts [--local, -l] [--check, -c]
+## Options:
+##   --local, -l  Run TypeScript codegen on the host (NVM + pnpm); Drush still uses DDEV.
+##   --check, -c  Drift-check the committed OpenAPI JSON only (no write, no codegen).
+
+set -euo pipefail
+
+usage() {
+  sed -n '3,11p' "$0" | sed 's/^## \{0,1\}//'
+}
+
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    --help) set -- "$@" "-h" ;;
+    --local) set -- "$@" "-l" ;;
+    --check) set -- "$@" "-c" ;;
+    *) set -- "$@" "$arg" ;;
+  esac
+done
+
+LOCAL_MODE="false"
+CHECK_MODE="false"
+
+while getopts "hlc" opt; do
+  case "$opt" in
+    h)
+      usage
+      exit 0
+      ;;
+    l) LOCAL_MODE="true" ;;
+    c) CHECK_MODE="true" ;;
+    *)
+      usage >&2
+      exit 1
+      ;;
+  esac
+done
+
+cd "$DDEV_APPROOT"
+
+if [ "$CHECK_MODE" = "true" ]; then
+  echo "Checking OpenAPI export drift..."
+  ddev drush specstack:openapi:generate --check
+  exit 0
+fi
+
+if [ "$LOCAL_MODE" = "true" ]; then
+  ddev openapi-ts-local
+  exit 0
+fi
+
+echo "Exporting OpenAPI contracts (Drush)..."
+ddev drush specstack:openapi:generate
+
+echo "Generating TypeScript client in DDEV..."
+ddev exec "pnpm openapi-ts"

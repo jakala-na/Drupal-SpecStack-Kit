@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install hooks for the SpecStack Kit profile.
+ */
+
+/**
+ * Applies post-install defaults: themes, demo block, REST permissions.
+ */
+function specstack_kit_install(): void {
+  \Drupal::configFactory()->getEditable('system.theme')
+    ->set('default', 'specstack_theme')
+    ->set('admin', 'gin')
+    ->save(TRUE);
+
+  \Drupal::moduleHandler()->loadInclude('specstack_hello_world', 'install');
+  if (function_exists('specstack_hello_world_place_demo_block')) {
+    specstack_hello_world_place_demo_block();
+  }
+
+  user_role_grant_permissions('anonymous', [
+    'restful get specstack_hello_world_collection',
+    'restful get specstack_hello_world_item',
+  ]);
+
+  user_role_grant_permissions('authenticated', [
+    'create hello_world content',
+    'delete any hello_world content',
+    'edit any hello_world content',
+    'restful delete specstack_hello_world_item',
+    'restful get specstack_hello_world_collection',
+    'restful get specstack_hello_world_item',
+    'restful patch specstack_hello_world_item',
+    'restful post specstack_hello_world_collection',
+  ]);
+}

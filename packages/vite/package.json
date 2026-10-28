@@ -1,0 +1,22 @@
+{
+  "name": "@specstack/vite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./build": "./builders/build-theme.js",
+    "./build-base": "./builders/build-base.js",
+    "./build-sdc": "./builders/build-sdc.js",
+    "./build-react": "./builders/build-react.js",
+    "./build-icons-sprite": "./builders/build-icons-sprite.js",
+    "./compile-css": "./builders/compile-css.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "@vitejs/plugin-react": "^5.0.0",
+    "chokidar": "^4.0.3",
+    "glob": "^11.0.2",
+    "tailwindcss": "^4.1.4",
+    "vite": "^8.0.0"
+  }
+}

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+## Build SpecStack frontend assets on the host.
+##
+## Usage: theme-local
+
+set -euo pipefail
+
+case "${1:-}" in
+  -h|--help)
+    sed -n '3,5p' "$0" | sed 's/^## \{0,1\}//'
+    exit 0
+    ;;
+esac
+
+cd "$DDEV_APPROOT"
+
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  # shellcheck source=/dev/null
+  . "$HOME/.nvm/nvm.sh"
+elif [ -s "/usr/local/nvm/nvm.sh" ]; then
+  # shellcheck source=/dev/null
+  . "/usr/local/nvm/nvm.sh"
+elif command -v nvm >/dev/null 2>&1; then
+  :
+else
+  echo "NVM not found. Install NVM or run 'ddev theme' to build inside DDEV." >&2
+  exit 1
+fi
+
+if [ -f ".nvmrc" ]; then
+  echo "Using Node.js version from .nvmrc..."
+  nvm use
+else
+  echo "No .nvmrc found; using default Node.js version."
+  nvm use default
+fi
+
+echo "Installing SpecStack frontend dependencies on the host..."
+pnpm install
+
+echo "Building SpecStack frontend assets on the host..."
+pnpm build

@@ -1,0 +1,13 @@
+uuid: 054ed340-cff8-446e-90f3-a02952619402
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QiXTYL6E6KweECbIjpdFFX6jqjdnr9lTL7kiUbZVLvk
+name: 'Hello World'
+type: hello_world
+description: 'Demo content type used by the SpecStack React CRUD example.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

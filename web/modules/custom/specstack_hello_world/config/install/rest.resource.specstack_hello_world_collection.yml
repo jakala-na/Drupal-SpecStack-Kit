@@ -1,0 +1,11 @@
+id: specstack_hello_world_collection
+plugin_id: specstack_hello_world_collection
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+  formats:
+    - json
+  authentication:
+    - cookie
